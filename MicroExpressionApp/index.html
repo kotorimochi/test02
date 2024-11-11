@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微表情分析アプリ</title>
+    <!-- face-api.jsの読み込み -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <h1>微表情分析アプリ</h1>
+    <video id="video" width="640" height="480" autoplay muted></video>
+    <button id="startButton">スタート</button>
+    <button id="startButton2">スタート2</button>
+    <div id="results"></div>
+
+    <!-- face-api.jsが読み込まれてからapp.jsを実行 -->
+    <script>
+        window.onload = () => {
+            if (typeof faceapi === "undefined") {
+                console.error("face-api.js が正しく読み込まれていません");
+                return;
+            }
+
+            // app.js の内容をここで実行
+            const script = document.createElement("script");
+            script.src = "app.js";
+            document.body.appendChild(script);
+        };
+    </script>
+</body>
+</html>
